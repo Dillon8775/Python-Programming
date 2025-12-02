@@ -1,0 +1,16 @@
+-----Payroll-----
+Employee ID: 123
+Employee Name: Dillon
+Hours Worked: 30.00
+Hourly Pay Rate: $11.44
+Gross Pay: $343.20
+--------
+
+-----Payroll-----
+Employee ID: 567
+Employee Name: Dillon
+Hours Worked: 20.00
+Hourly Pay Rate: $77.00
+Gross Pay: $1540.00
+--------
+
