@@ -4,11 +4,7 @@ By: D. Strickland
 8/20/2026
 """
 
-def main():
-    invested_amount, apr, years = get_investment_info()
-    future_value, invested_gain = calc_investment(invested_amount, apr, years)
-    display(future_value, apr, years, future_value, invested_gain)
-
+# Gets the users investment information
 def get_investment_info():
     """
     ask user to input investment amount, apr, and year
@@ -19,29 +15,43 @@ def get_investment_info():
     years = int(input("Enter number of whole years: "))
     return (invested_amount, apr / 100, years)
 
-def calc_investment(invested_amount, apr, years):
+# Calculates the users investment
+def calc_investment(principle, apr, term:int):
     """
-    :param invested_amount:
+    :param principle: the user's invested amount
     :param apr:
-    :param years:
+    :param term: the term in years (int)
     :return:
     """
-    pass
+    future_value = principle * (1 + apr / 12) ** (term * 12)
+    total_interest_earned = future_value - principle
+    return future_value, total_interest_earned
 
-def display(invested_amount, apr, years, future_value, investment_gain):
+# Displays the final invested amount
+def display(principle, apr, term:int, future_value, gain):
     """
-    :param invested_amount:
+    :param principle:
     :param apr:
-    :param years:
+    :param term:
     :param future_value:
-    :param investment_gain:
+    :param gain:
     :return: None
     """
-    print(f"Invested Amount: ${invested_amount:,.2f}")
+    print(f"\nInvested Amount: ${principle:,.2f}")
     print(f"APR: ${apr:.2%}")
+    print(f"Term: {term} years")
+    print(f"Future Value: ${future_value:,.2f}")
+    print(f"Total Gain: ${gain:,.2f}")
 
 apr = 0.035
 print(f"APR: {apr:.2%}")
 
+# Create the main method
+def main():
+    invested_amount, apr, years = get_investment_info()
+    future_value, invested_gain = calc_investment(invested_amount, apr, years)
+    display(invested_amount, apr, years, future_value, invested_gain)
+
+# Run main method only in this Python file
 if __name__ == "__main__":
     main()
