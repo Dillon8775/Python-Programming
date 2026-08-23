@@ -11,7 +11,7 @@ def get_investment_info():
     :return: investment amount, apr, and year
     """
     invested_amount = float(input("Enter investment amount: "))
-    apr = float(input("Enter APR in number of percentage, enter 3 for 3%: "))
+    apr = float(input("Enter APR in number of percentage (ex. enter 3 for 3%): "))
     years = int(input("Enter number of whole years: "))
     return (invested_amount, apr / 100, years)
 
