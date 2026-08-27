@@ -1,7 +1,5 @@
 import metric_converter
-import math
-import random
-import time
+
 
 def main():
     print(metric_converter.__doc__)
