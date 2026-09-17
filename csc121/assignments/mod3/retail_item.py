@@ -13,7 +13,7 @@ class RetailItem:
     Class to represent a retail item.
     """
     @override
-    def __init__(self, upc:int, description:str, price:float, quantity:int):
+    def __init__(self, upc:str, description:str, price:float, quantity:int=1):
         self.__upc = upc
         self.__description = description
         self.__price = price
@@ -29,8 +29,20 @@ class RetailItem:
 
         return self.__upc == other.__upc
 
+    @override
+    def __str(self):
+        """
+        :return: a readable representation of the item.
+        """
+        return (
+            f"UPC: {self.__upc}, "
+            f"Description: {self.__description}, "
+            f"Price: {self.__price}, "
+            f"Quantity: {self.__quantity}"
+        )
+
     # Getters
-    def get_upc(self) -> int:
+    def get_upc(self) -> str:
         return self.__upc
 
     def get_description(self) -> str:
@@ -43,7 +55,7 @@ class RetailItem:
         return self.__quantity
 
     # Setters/Mutators
-    def set_upc(self, upc:int):
+    def set_upc(self, upc:str):
         self.__upc = upc
 
     def set_description(self, description:str):
@@ -54,6 +66,12 @@ class RetailItem:
 
     def set_quantity(self, quantity:int):
         self.__quantity = quantity
+
+    def get_subtotal(self):
+        """
+        :return: the price multiplied by the quantity.
+        """
+        return self.__price * self.__quantity
 
 """
 Define the main method for the user
